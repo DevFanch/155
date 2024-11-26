@@ -34,6 +34,8 @@ function upperCaseFirst(word) {
 }
 // Loop to apply the callback
 const wordsConverted = words.map(upperCaseFirst)
+// const wordsConverted = words.map(toto => toto[0].toUpperCase() + toto.slice(1))
+
 // Display to string
 console.log(wordsConverted.join(' '));
 
@@ -52,5 +54,6 @@ for (let index = 0; index < 5; index++) {
     const key = Math.floor(Math.random() * 4)
     // Identify key from id => alpha
     const alphaKey = keys[key]
+    // Display
     console.log(colorsDico.get(alphaKey));
 }
