@@ -38,13 +38,16 @@ let counter = 5
 
 setTimeout(() => {
     alert('Bouuuum !!!')
-}, counter * 1000);
+}, 6000);
 
-const idInterval = setInterval(() => {
+function display() {
     console.log(`Il reste ${counter} seconde(s)`);
-    if (counter === 0) {
+    counter--
+    if (counter < 0) {
         clearInterval(idInterval)
-    } else {
-        counter--
     }
-}, 1000);
+}
+
+display()
+
+const idInterval = setInterval(display, 1000);
