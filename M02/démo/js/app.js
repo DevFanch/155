@@ -36,9 +36,10 @@
 // Timer manager
 let counter = 5
 
+
 setTimeout(() => {
     alert('Bouuuum !!!')
-}, 6000);
+}, 6000); // 6 au lieu de 5 car décallage avec le setinterval
 
 function display() {
     console.log(`Il reste ${counter} seconde(s)`);
