@@ -1,0 +1,17 @@
+{
+    "poisson": "bar",
+    "legume": {
+        "nom": "carotte",
+        "espece": "Daucus carota"
+    },
+    "fruits": [
+        {
+            "nom": "pomme",
+            "couleur": "rouge"
+        },
+        {
+            "nom": "banane",
+            "couleur": "jaune"
+        }
+    ]
+}
