@@ -1,59 +1,27 @@
-// Enoncé 1 [0,100]
-const tirageUnique = new Set
-let count = 0
+// Enoncé 1
+let perso = prompt('Quel est votre perso préféré des Simpsons?', "Mr. Burns")
+console.log(perso);
 
-while (tirageUnique.size < 101) {
-    // Generate random number
-    const randomNumber = Math.floor(Math.random() * 101)
-     // Add
-    tirageUnique.add(randomNumber)
-    // Increment round
-    count++
+localStorage.setItem('simpsonsPeople', perso)
+
+// // Enoncé 2
+const people = localStorage.getItem('simpsonsPeople')
+
+if (people === "" || people === 'null') {
+    perso = prompt('Quel est votre perso préféré des Simpsons?2', "Moe")
+    localStorage.setItem('simpsonsPeople', perso)
+    console.log(perso);
+} else {
+    // Enoncé 3
+    alert(people)
+    const response = confirm('Voulez-vous modifier vôtre choix ?')
+    if (response) {
+        perso = prompt('Quel est votre nouveau choix?', "Marge ?? Maggie")
+        localStorage.setItem('simpsonsPeople', perso)
+    }
 }
 
-console.log('Mon tirage : ',tirageUnique);
-console.log('Nombre de tirages : ',count);
-
-// Enoncé 2
-const sentence = "une chaine avec des lettres dans un certain ordre pour donner du sens"
-// convert String to Array
-const sentenceArray  = sentence.split('')
-// Sort
-sentenceArray.sort()
-// Display join to a string without spaces
-console.log(sentenceArray.join('').trim());
-
-// Enoncé 3
-const sentence2 = "une phrase sans majuscule"
-// Convert String to Array
-const words = sentence2.split(' ')
-
-// Callback
-function upperCaseFirst(word) {
-    return word[0].toUpperCase() + word.slice(1)
-}
-// Loop to apply the callback
-const wordsConverted = words.map(upperCaseFirst)
-// const wordsConverted = words.map(toto => toto[0].toUpperCase() + toto.slice(1))
-
-// Display to string
-console.log(wordsConverted.join(' '));
-
-// Enoncé 4
-const colorsDico = new Map([
-    ["j","jaune"],
-    ["r","rouge"],
-    ["v","violet"],
-    ["b","bleu"],
-])
-console.log(colorsDico);
-const keys = Array.from(colorsDico.keys()) // get Keys array
-
-for (let index = 0; index < 5; index++) {
-    // Gen random id
-    const key = Math.floor(Math.random() * 4)
-    // Identify key from id => alpha
-    const alphaKey = keys[key]
-    // Display
-    console.log(colorsDico.get(alphaKey));
-}
+// Enoncé 4-5
+fetch('js/data/users.json')
+    .then(response => response.json())
+    .then(datas => localStorage.setItem('users', JSON.stringify(datas.users)))
