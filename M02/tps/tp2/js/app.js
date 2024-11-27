@@ -32,5 +32,4 @@ fetch('js/data/users.json')
         datas.users.map(user => document.getElementById('users').insertAdjacentHTML('beforeend', 
             `<li>${user.nom}</li>`
         ))
-        
     })
